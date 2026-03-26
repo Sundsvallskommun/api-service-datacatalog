@@ -1,0 +1,94 @@
+#========================================
+# General settings
+#========================================
+logging:
+  level:
+    root: INFO
+openapi:
+  name: ${spring.application.name}
+  title: ${spring.application.name}
+  version: '@project.version@'
+spring:
+  application:
+    name: api-datacatalog
+
+integration:
+  dcat:
+    cache-duration: PT1H
+    rdf-sources:
+      - name: diwise
+        url: https://sundsvall.diwise.io/api/opendata/datasets/dcat
+    catalog:
+      about: https://api.sundsvall.se/datacatalog/datasets/dcat#catalog
+      title-sv: Sundsvalls kommuns öppna data
+      title-en: Open data from Sundsvall municipality
+      description-sv: Katalog med öppna data och API:er från Sundsvalls kommun
+      description-en: Catalog of open data and APIs from Sundsvall municipality
+      issued: "2024-01-01"
+      modified: "2026-03-25"
+      homepage: https://utveckling.sundsvall.se/kallkod-och-data/oppna-data-och-oppna-apier
+      spatial: http://sws.geonames.org/2670776
+      publisher:
+        about: http://dataportal.se/organisation/SE2120002411
+        name: Sundsvalls kommun
+        type: LocalAuthority
+        homepage: https://www.sundsvall.se
+        email: digital-infra@sundsvall.se
+      contact-point:
+        name: Digitalisering och IT, Sundsvalls kommun
+        email: digital-infra@sundsvall.se
+        phone: "+4660191000"
+        street-address: Norrmalmsgatan 4
+        postal-code: "85185"
+        locality: Sundsvall
+        country: Sverige
+      datasets:
+        - about: https://api.sundsvall.se/garbage/datasets/dcat#dataset
+          title-sv: Sopschema Sundsvall
+          title-en: Garbage collection schedule Sundsvall
+          description-sv: >-
+            Schemalagd sophämtning för adresser i Sundsvalls kommun.
+            Inkluderar hämtningsdag, vecka och nästa hämtningsdatum per avfallstyp.
+          description-en: >-
+            Scheduled garbage collection for addresses in Sundsvall municipality.
+            Includes collection day, week, and next pickup date per waste type.
+          issued: "2024-01-01"
+          spatial: http://sws.geonames.org/2670776
+          temporal-start: "2024-01-01"
+          conforms-to: https://api.sundsvall.se/garbage/api-docs
+          keywords-sv:
+            - sopor
+            - avfall
+            - sophämtning
+            - renhållning
+            - schema
+          keywords-en:
+            - garbage
+            - waste
+            - collection schedule
+          theme: ENVI
+          access-rights: PUBLIC
+          distribution:
+            about: https://api.sundsvall.se/garbage/datasets/dcat#distribution
+            title-sv: Sopschema JSON API
+            title-en: Garbage schedule JSON API
+            description-sv: Sophämtningsscheman i JSON-format via REST API
+            description-en: Garbage collection schedules in JSON format via REST API
+            access-url: https://api.sundsvall.se/garbage/2281/schedules
+            media-type: application/json
+            license: http://creativecommons.org/publicdomain/zero/1.0/
+            status: COMPLETED
+            availability: stable
+          data-service:
+            about: https://api.sundsvall.se/garbage/datasets/dcat#dataservice
+            title-sv: Sopschema API
+            title-en: Garbage Schedule API
+            description-sv: REST API för sophämtningsscheman i Sundsvalls kommun
+            endpoint-url: https://api.sundsvall.se/garbage
+            endpoint-description: https://api.sundsvall.se/garbage/api-docs
+            license: http://creativecommons.org/publicdomain/zero/1.0/
+            conforms-to: https://spec.openapis.org/oas/v3.1
+            access-rights: PUBLIC
+            keywords-sv:
+              - sopschema
+              - REST API
