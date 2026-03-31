@@ -25,7 +25,7 @@ integration:
       description-sv: Katalog med öppna data och API:er från Sundsvalls kommun
       description-en: Catalog of open data and APIs from Sundsvall municipality
       issued: "2024-01-01"
-      modified: "2026-03-25"
+      modified: "2026-04-01"
       homepage: https://utveckling.sundsvall.se/kallkod-och-data/oppna-data-och-oppna-apier
       spatial: http://sws.geonames.org/2670776
       publisher:
@@ -43,7 +43,7 @@ integration:
         locality: Sundsvall
         country: Sverige
       datasets:
-        - about: https://api.sundsvall.se/garbage/datasets/dcat#dataset
+        - about: https://api.sundsvall.se/Garbage/datasets/dcat#dataset
           title-sv: Sopschema Sundsvall
           title-en: Garbage collection schedule Sundsvall
           description-sv: >-
@@ -52,10 +52,10 @@ integration:
           description-en: >-
             Scheduled garbage collection for addresses in Sundsvall municipality.
             Includes collection day, week, and next pickup date per waste type.
-          issued: "2024-01-01"
+          issued: "2026-03-27"
           spatial: http://sws.geonames.org/2670776
           temporal-start: "2024-01-01"
-          conforms-to: https://api.sundsvall.se/garbage/api-docs
+          conforms-to: https://api.sundsvall.se/Garbage/api-docs
           keywords-sv:
             - sopor
             - avfall
@@ -69,26 +69,17 @@ integration:
           theme: ENVI
           access-rights: PUBLIC
           distribution:
-            about: https://api.sundsvall.se/garbage/datasets/dcat#distribution
+            about: https://api.sundsvall.se/Garbage/datasets/dcat/distribution
             title-sv: Sopschema JSON API
             title-en: Garbage schedule JSON API
             description-sv: Sophämtningsscheman i JSON-format via REST API
             description-en: Garbage collection schedules in JSON format via REST API
-            access-url: https://api.sundsvall.se/garbage/2281/schedules
+            access-url: https://api.sundsvall.se/Garbage/2281/schedules
             media-type: application/json
             license: http://creativecommons.org/publicdomain/zero/1.0/
             status: COMPLETED
             availability: stable
-          data-service:
-            about: https://api.sundsvall.se/garbage/datasets/dcat#dataservice
-            title-sv: Sopschema API
-            title-en: Garbage Schedule API
-            description-sv: REST API för sophämtningsscheman i Sundsvalls kommun
-            endpoint-url: https://api.sundsvall.se/garbage
-            endpoint-description: https://api.sundsvall.se/garbage/api-docs
-            license: http://creativecommons.org/publicdomain/zero/1.0/
-            conforms-to: https://spec.openapis.org/oas/v3.1
-            access-rights: PUBLIC
-            keywords-sv:
-              - sopschema
-              - REST API
+            conforms-to: https://api.sundsvall.se/Garbage/api-docs
+            issued: "2026-03-27"
+            modified: "2026-04-01"
+            language: http://publications.europa.eu/resource/authority/language/SWE

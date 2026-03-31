@@ -87,7 +87,11 @@ public record DcatProperties(
 		String mediaType,
 		String license,
 		String status,
-		String availability) {
+		String availability,
+		String conformsTo,
+		String issued,
+		String modified,
+		String language) {
 
 	}
 

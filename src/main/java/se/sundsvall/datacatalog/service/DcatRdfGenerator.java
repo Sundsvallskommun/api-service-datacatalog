@@ -214,9 +214,14 @@ public class DcatRdfGenerator {
 
 		Optional.ofNullable(dist.accessUrl()).ifPresent(url -> el.appendChild(resourceElement(doc, DCAT_NS, "dcat:accessURL", url)));
 		Optional.ofNullable(dist.mediaType()).ifPresent(mt -> el.appendChild(resourceElement(doc, DCAT_NS, "dcat:mediaType", MEDIA_TYPE_BASE + mt)));
+		Optional.ofNullable(dist.mediaType()).ifPresent(mt -> el.appendChild(textElement(doc, DCTERMS_NS, "dcterms:format", mt)));
 		Optional.ofNullable(dist.status()).ifPresent(s -> el.appendChild(resourceElement(doc, ADMS_NS, "adms:status", DISTRIBUTION_STATUS_BASE + s)));
 		Optional.ofNullable(dist.availability()).ifPresent(a -> el.appendChild(resourceElement(doc, DCATAP_NS, "dcatap:availability", AVAILABILITY_BASE + a.toLowerCase())));
 		Optional.ofNullable(dist.license()).ifPresent(lic -> el.appendChild(resourceElement(doc, DCTERMS_NS, "dcterms:license", lic)));
+		Optional.ofNullable(dist.conformsTo()).ifPresent(c -> el.appendChild(resourceElement(doc, DCTERMS_NS, "dcterms:conformsTo", c)));
+		Optional.ofNullable(dist.issued()).ifPresent(d -> el.appendChild(dateElement(doc, DCTERMS_NS, "dcterms:issued", d)));
+		Optional.ofNullable(dist.modified()).ifPresent(d -> el.appendChild(dateElement(doc, DCTERMS_NS, "dcterms:modified", d)));
+		Optional.ofNullable(dist.language()).ifPresent(l -> el.appendChild(resourceElement(doc, DCTERMS_NS, "dcterms:language", l)));
 
 		return el;
 	}

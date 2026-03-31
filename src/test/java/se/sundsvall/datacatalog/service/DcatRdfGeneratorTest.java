@@ -24,7 +24,8 @@ class DcatRdfGeneratorTest {
 	private static final Distribution DISTRIBUTION = new Distribution(
 		"http://example.com/dist", "Dist SV", "Dist EN", "Beskrivning", "Description",
 		"http://example.com/api/data", "application/json", "http://creativecommons.org/publicdomain/zero/1.0/",
-		"COMPLETED", "stable");
+		"COMPLETED", "stable", "http://example.com/api-docs",
+		"2024-01-01", "2024-06-01", "http://publications.europa.eu/resource/authority/language/SWE");
 
 	private static final DataService DATA_SERVICE = new DataService(
 		"http://example.com/service", "Service SV", "Service EN", "Beskrivning",
@@ -88,9 +89,14 @@ class DcatRdfGeneratorTest {
 			.contains("dcat:Distribution")
 			.contains("Dist SV")
 			.contains("http://example.com/api/data")
+			.contains("dcat:mediaType")
 			.contains("application/json")
+			.contains("dcterms:format")
 			.contains("distribution-status/COMPLETED")
-			.contains("availability/stable");
+			.contains("availability/stable")
+			.contains("2024-01-01")
+			.contains("2024-06-01")
+			.contains("language/SWE");
 	}
 
 	@Test
@@ -194,7 +200,7 @@ class DcatRdfGeneratorTest {
 	void generateWithNullDistributionFields() {
 		final var dist = new Distribution(
 			"http://example.com/dist", "Titel", null, null, null,
-			null, null, null, null, null);
+			null, null, null, null, null, null, null, null, null);
 
 		final var dataset = new Dataset(
 			"http://example.com/ds", "DS", null, "Beskrivning", null,
@@ -210,6 +216,7 @@ class DcatRdfGeneratorTest {
 			.contains("dcat:Distribution")
 			.doesNotContain("dcat:accessURL")
 			.doesNotContain("dcat:mediaType")
+			.doesNotContain("dcterms:format")
 			.doesNotContain("adms:status")
 			.doesNotContain("dcatap:availability");
 	}
